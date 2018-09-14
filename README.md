@@ -1,5 +1,5 @@
 # tumblr_feed
-# Lab 1 - *Name of App Here*
+# Lab 1 - *Tumblr_Feed*
 
 **Name of your app** is a photo browsing app using the [The Tumblr API](https://www.tumblr.com/docs/en/api/v2#posts).
 
