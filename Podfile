@@ -6,6 +6,7 @@ target 'tumblr_feed' do
   use_frameworks!
 
   # Pods for tumblr_feed
+pod 'AlamofireImage'
 
   target 'tumblr_feedTests' do
     inherit! :search_paths
