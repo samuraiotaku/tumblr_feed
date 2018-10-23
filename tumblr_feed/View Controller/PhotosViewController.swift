@@ -19,8 +19,8 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
 
         tableView.delegate = self
         tableView.dataSource = self
-        //self.tableView.rowHeight = 44.0
-        // Network request snippet
+        tableView.rowHeight = 300
+
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
@@ -56,6 +56,15 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             cell.photoImageView.af_setImage(withURL: url!)
         }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell){
+            let post = posts[indexPath.row]
+            let vc = segue.destination as! PhotoDetailsViewController
+            vc.post = post
+        }
     }
     
     
